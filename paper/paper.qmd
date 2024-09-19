@@ -1,0 +1,66 @@
+---
+title: "Marriage Licenses Issued in Canada"
+subtitle: "My subtitle if needed"
+author: 
+  - Aviral Bhardwaj
+thanks: "Code and data are available at: https://github.com/Aviral-03/marriage-license-toronto"
+date: today
+date-format: long
+abstract: "Marriage License"
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+
+data <- read_csv("../data/analysis_data/analysis_data.csv")
+
+```
+
+
+# Introduction
+
+The data was collected from Open Data Toronto [@opendata]. The data includes the number of marriage licenses issued in Canada from 2011 to 2024.
+
+This paper explores the number of marriage licenses issued in Canada from 2011 to 2024. Refer to [@sec-data] for the graph that was developed.
+
+We used R [@citeR] programming language to write code. We used libraries [@tidyverse] to clean and analyze the data, and [@ggplot2] to create the graph.
+
+# Data {#sec-data}
+
+
+```{r}
+#| label: fig-marriage
+#| fig-cap: Marriage Licenses issued
+#| echo: false
+
+data |>
+  ggplot(aes(x = date, y = marriage_licenses)) +
+  geom_point() +
+  labs(title = "Marriage Licenses Issued",
+       x = "Year",
+       y = "Licenses")
+```
+
+The graph [@fig-marriage] shows that the number of marriage licenses issued in Canada has been increasing over the years. It also shows that there is a seasonal pattern in the number of marriage licenses issued.
+
+
+\newpage
+
+\appendix
+
+# Appendix {-}
+
+\newpage
+
+
+# References
+
+
